@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { siteConfig } from '../config';
 
 interface Props {
   title: string;
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const { title, description = "Empowering every Kenyan citizen with accessible parliamentary data and insights." } = Astro.props;
+const { plausible } = siteConfig;
 ---
 
 <!DOCTYPE html>
@@ -16,7 +18,15 @@ const { title, description = "Empowering every Kenyan citizen with accessible pa
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/png" href="/assets/logo_64x64.png" />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    
+    {plausible.enabled && (
+      <script 
+        defer 
+        data-domain={plausible.domain} 
+        src={plausible.src || 'https://plausible.io/js/script.js'}
+      />
+    )}
   </head>
   <body>
     <slot />
