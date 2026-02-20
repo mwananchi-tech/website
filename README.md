@@ -1,4 +1,4 @@
-# Mwananchi Tech Website
+# mwananchi-tech website
 
 An Astro-powered website for Mwananchi Tech, featuring configurable projects and blog functionality.
 
